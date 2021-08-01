@@ -16,6 +16,15 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '4bd12ae349400d17645be41a487dfccdf15a0dbe9e3e6bb9c88205a6654a76ec99aa4bae871375a36714cb37176f78a556c6ec7456b849b5d280ed8b2bbeb86e'
 
+
+
+
+require 'rspotify/oauth'
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :spotify, ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'], scope: 'user-read-email playlist-modify-public user-library-read user-library-modify'
+end
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
