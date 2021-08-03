@@ -22,3 +22,5 @@ module Streamstatz
     # the framework and any gems in your application.
   end
 end
+
+RSpotify::authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
