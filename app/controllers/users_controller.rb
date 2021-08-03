@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     user.spotify_display_name = auth_details.display_name
     user.access_token = auth_details.credentials.token
     user.refresh_token = auth_details.credentials.refresh_token
+    user.spotify_token_expiry_date = auth_details.credentials.expires_at
     user.save!
     if user.save
       sign_in user
@@ -20,4 +21,6 @@ class UsersController < ApplicationController
   end
 
 end
+
+
 
