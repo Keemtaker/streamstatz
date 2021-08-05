@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :spotify, :top_tracks]
+  skip_before_action :authenticate_user!, only: [ :spotify]
 
   def spotify
     auth_details = RSpotify::User.new(request.env['omniauth.auth'])
@@ -16,41 +16,12 @@ class UsersController < ApplicationController
     user.save!
     if user.save
       sign_in user
-      redirect_to top_tracks_path
+      redirect_to spotify_top_tracks_path
     else
       redirect_to root_path
     end
   end
 
-  def top_tracks
-    initialize_spotify_user
-    @top_tracks = initialize_spotify_user.top_tracks(time_range: 'short_term')
-  end
-
-  def top_artists
-    initialize_spotify_user
-    @top_artists = initialize_spotify_user.top_artists(time_range: 'short_term')
-    raise
-  end
-
-  def recently_played
-    initialize_spotify_user
-    @recently_played = initialize_spotify_user.recently_played
-  end
-
-
-  private
-
-  def initialize_spotify_user
-    spotify_user = RSpotify::User.new(
-    {
-      'credentials' => {
-         "token" => current_user.spotify_access_token,
-         "refresh_token" => current_user.spotify_refresh_token,
-      } ,
-      'id' => current_user.spotify_id
-    })
-  end
 
 end
 

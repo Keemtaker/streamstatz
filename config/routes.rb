@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'users#spotify'
   get '/auth/spotify', to: 'users#spotify'
 
-  get 'top_tracks', to: "users#top_tracks"
-  get 'top_artists', to: "users#top_artists"
-  get 'recently_played', to: "users#recently_played"
+  get 'spotify_top_tracks', to: "spotify_users#spotify_top_tracks"
+  get 'spotify_top_artists', to: "spotify_users#spotify_top_artists"
+  get 'spotify_recently_played', to: "spotify_users#spotify_recently_played"
 
 end
