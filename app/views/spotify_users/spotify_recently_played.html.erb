@@ -1,0 +1,9 @@
+<% @recently_played.each do | recently |  %>
+  <%= recently.name %>
+  <%= '---------' %>
+  <%= recently.artists.first.name %>
+  <%= '-----------' %>
+  <%= recently.popularity %>
+  <%= '----------' %>
+  <%= recently.played_at %>
+<% end %>

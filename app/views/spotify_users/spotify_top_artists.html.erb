@@ -1,0 +1,9 @@
+
+<% @top_artists.each do | artist | %>
+  <%= artist.name %>
+  <%= '------------' %>
+  <%= artist.images[-1]['url'] %>
+  <%= '------------' %>
+  <%= artist.popularity %>
+
+<% end %>
