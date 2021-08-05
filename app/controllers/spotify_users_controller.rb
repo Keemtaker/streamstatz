@@ -8,7 +8,6 @@ class SpotifyUsersController < ApplicationController
   def spotify_top_artists
     initialize_spotify_user
     @top_artists = initialize_spotify_user.top_artists(time_range: 'short_term')
-    raise
   end
 
   def spotify_recently_played
