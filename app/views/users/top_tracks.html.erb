@@ -1,0 +1,8 @@
+<% @top_tracks.flatten.each do | track | %>
+  <%= track.name %>
+  <%= '--------' %>
+  <%= track.artists[0].name %>
+   <%= '--------' %>
+   <%= track.album.images[-1]["url"] %>
+  <%= '.............' %>
+<% end %>
