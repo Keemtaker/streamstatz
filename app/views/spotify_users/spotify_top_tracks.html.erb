@@ -1,42 +1,37 @@
 <div class="container">
   <br>
-  <% number_count = 0 %>
-  <% @top_tracks.flatten.each do | track | %>
-    <div class="row">
-      <div class="1">
-        <%= number_count += 1 %>
-      </div>
-      <div class="col-sm-2 col-md-offset-1">
-        <%= image_tag track.album.images[-1]["url"], size: "40x40", alt: track.name  %>
-      </div>
-      <div class="col-sm-3">
-        <div class="d-none d-md-block">
-          <i class='fas fa-music'></i>
-        </div>
-        <div>
-          <%= track.name %>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="d-none d-md-block">
-          <i class="fas fa-microphone-alt"></i>
-        </div>
-        <div>
-          <%= track.artists[0].name  %>
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="d-none d-md-block">
-          <i class="fas fa-fire"></i>
-        </div>
-        <div>
-          <%= track.popularity  %>/100
-        </div>
-      </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="last-month-tab" data-bs-toggle="tab" data-bs-target="#last-month" type="button" role="tab" aria-controls="last-month" aria-selected="true">Last Month</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="half-year-tab" data-bs-toggle="tab" data-bs-target="#half-year" type="button" role="tab" aria-controls="half-year" aria-selected="false">Last 6 Months</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="all-time-tab" data-bs-toggle="tab" data-bs-target="#all-time" type="button" role="tab" aria-controls="all-time" aria-selected="false">All Time</button>
+    </li>
+  </ul>
+  <br>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="last-month" role="tabpanel" aria-labelledby="last-month-tab">
+
+      <% @top_tracks_short_term.flatten.each do | track | %>
+        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+      <% end %>
     </div>
-    <hr />
-    <br>
-  <% end %>
+    <% @number_count = 0 %>
+    <div class="tab-pane fade" id="half-year" role="tabpanel" aria-labelledby="half-year-tab">
+      <% @top_tracks_medium_term.flatten.each do | track | %>
+        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+      <% end %>
+    </div>
+    <% @number_count = 0 %>
+    <div class="tab-pane fade" id="all-time" role="tabpanel" aria-labelledby="all-time-tab">
+      <% @top_tracks_long_term.flatten.each do | track | %>
+        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
-
-

@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-sm-1">
+    <%= @number_count += 1 %>
+  </div>
+  <div class="col-sm-2 col-md-offset-1">
+    <%= image_tag track.album.images[-1]["url"], size: "40x40", alt: track.name  %>
+  </div>
+  <div class="col-sm-3">
+    <div class="d-none d-md-block">
+      <i class='fas fa-music'></i>
+    </div>
+    <div>
+      <%= track.name %>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="d-none d-md-block">
+      <i class="fas fa-microphone-alt"></i>
+    </div>
+    <div>
+      <%= track.artists[0].name  %>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="d-none d-md-block">
+      <i class="fas fa-fire"></i>
+    </div>
+    <div>
+      <%= track.popularity  %>/100
+    </div>
+  </div>
+</div>
+<hr />
+<br>
