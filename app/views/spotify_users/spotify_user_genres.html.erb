@@ -1,0 +1,52 @@
+<br>
+<div class="container">
+  <%= render partial: "spotify_users/partials/tabs" %>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="last-month" role="tabpanel" aria-labelledby="last-month-tab">
+      <div class="row">
+        <div class="col-sm-6">
+          <ul class="list-group list-group-flush list-group-numbered">
+            <% genres = [] %>
+            <% @top_artists_short_term.each do | artist | %>
+                <% genres << artist.genres.first if artist.genres.any? %>
+            <% end %>
+            <% genres.uniq.each do | genre | %>
+              <li class="list-group-item"><%= genre.capitalize %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="half-year" role="tabpanel" aria-labelledby="half-year-tab">
+      <div class="col-sm-6">
+        <ul class="list-group list-group-flush list-group-numbered">
+          <% genres = [] %>
+          <% @top_artists_medium_term.each do | artist | %>
+              <% genres << artist.genres.first if artist.genres.any? %>
+          <% end %>
+          <% genres.uniq.each do | genre | %>
+            <li class="list-group-item"><%= genre.capitalize %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="all-time" role="tabpanel" aria-labelledby="all-time-tab">
+      <div class="col-sm-6">
+        <ul class="list-group list-group-flush list-group-numbered">
+          <% genres = [] %>
+          <% @top_artists_long_term.each do | artist | %>
+              <% genres << artist.genres.first if artist.genres.any? %>
+          <% end %>
+          <% genres.uniq.each do | genre | %>
+            <li class="list-group-item"><%= genre.capitalize %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

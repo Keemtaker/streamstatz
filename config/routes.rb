@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'spotify_top_tracks', to: "spotify_users#spotify_top_tracks"
   get 'spotify_top_artists', to: "spotify_users#spotify_top_artists"
   get 'spotify_recently_played', to: "spotify_users#spotify_recently_played"
+  get 'spotify_user_genres', to: "spotify_users#spotify_user_genres"
 
 end

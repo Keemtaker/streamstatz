@@ -22,6 +22,10 @@ class SpotifyUsersController < ApplicationController
     @number_count = 0
   end
 
+  def spotify_user_genres
+   spotify_top_artists
+  end
+
   private
 
   def initialize_spotify_user
