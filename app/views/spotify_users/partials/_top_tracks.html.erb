@@ -3,7 +3,7 @@
     <%= @number_count += 1 %>
   </div>
   <div class="col-sm-2 col-md-offset-1">
-    <%= image_tag track.album.images[-1]["url"], size: "40x40", alt: track.name  %>
+    <%= image_tag track.album.images[0]["url"], size: "40x40", alt: track.name  %>
   </div>
   <div class="col-sm-3">
     <div class="d-none d-md-block">

@@ -18,7 +18,8 @@ class SpotifyUsersController < ApplicationController
 
   def spotify_recently_played
     initialize_spotify_user
-    @recently_played = initialize_spotify_user.recently_played
+    @recently_played = initialize_spotify_user.recently_played(limit: 50)
+    @number_count = 0
   end
 
   private
@@ -33,5 +34,4 @@ class SpotifyUsersController < ApplicationController
       'id' => current_user.spotify_id
     })
   end
-
 end

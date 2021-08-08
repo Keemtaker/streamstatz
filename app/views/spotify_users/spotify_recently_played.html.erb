@@ -1,9 +1,47 @@
-<% @recently_played.each do | recently |  %>
-  <%= recently.name %>
-  <%= '---------' %>
-  <%= recently.artists.first.name %>
-  <%= '-----------' %>
-  <%= recently.popularity %>
-  <%= '----------' %>
-  <%= recently.played_at %>
-<% end %>
+<br>
+<div class="container">
+  <div class="row">
+    <% @recently_played.each do | recently |  %>
+
+      <div class="col-sm-1">
+        <%= @number_count += 1 %>
+      </div>
+      <div class="col-sm-3">
+        <div class="d-none d-md-block">
+          <i class='fas fa-music'></i>
+        </div>
+        <%= recently.name %>
+      </div>
+      <div class="col-sm-3">
+        <div class="d-none d-md-block">
+          <i class="fas fa-microphone-alt"></i>
+        </div>
+        <div>
+          <%= recently.artists.first.name %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="d-none d-md-block">
+          <i class="far fa-clock"></i>
+        </div>
+        <div>
+          <% spotify_time = recently.played_at.split('T') %>
+          <% played_date = spotify_time.first %>
+          <% played_time_full = spotify_time.last.split(':') %>
+          <% played_time = played_time_full.first + ':' + played_time_full.second %>
+          <%= played_date %>, <%= played_time %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="d-none d-md-block">
+          <i class="fas fa-fire"></i>
+        </div>
+        <div>
+          <%= recently.popularity  %>/100
+        </div>
+      </div>
+      <hr />
+      <br>
+    <% end %>
+  </div>
+</div>
