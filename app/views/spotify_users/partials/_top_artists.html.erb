@@ -1,0 +1,11 @@
+<div class="col-sm-4">
+  <div class="card" style="width: 14rem;">
+    <%= image_tag  artist.images[0]['url'], class: 'card-img-top' %>
+    <div class="card-body">
+      <h7 class="card-title"><%= @number_count += 1 %>.  <span><%= artist.name %></span></h7>
+      <br>
+      <h8 class="card-title"><i class="fas fa-fire text-center"></i>  <span><%= artist.popularity %>/100</span></h8>
+    </div>
+  </div>
+  <br>
+</div>
