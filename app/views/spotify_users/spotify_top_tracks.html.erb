@@ -1,8 +1,25 @@
-<% @top_tracks.flatten.each do | track | %>
-  <%= track.name %>
-  <%= '--------' %>
-  <%= track.artists[0].name %>
-   <%= '--------' %>
-   <%= track.album.images[-1]["url"] %>
-  <%= '.............' %>
-<% end %>
+<div class="container">
+  <%= render partial: "spotify_users/partials/tabs" %>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="last-month" role="tabpanel" aria-labelledby="last-month-tab">
+
+      <% @top_tracks_short_term.flatten.each do | track | %>
+        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+      <% end %>
+    </div>
+    <% @number_count = 0 %>
+    <div class="tab-pane fade" id="half-year" role="tabpanel" aria-labelledby="half-year-tab">
+      <% @top_tracks_medium_term.flatten.each do | track | %>
+        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+      <% end %>
+    </div>
+    <% @number_count = 0 %>
+    <div class="tab-pane fade" id="all-time" role="tabpanel" aria-labelledby="all-time-tab">
+      <% @top_tracks_long_term.flatten.each do | track | %>
+        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

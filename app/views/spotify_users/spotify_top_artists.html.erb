@@ -1,9 +1,30 @@
+<br>
+<div class="container">
+  <%= render partial: "spotify_users/partials/tabs" %>
 
-<% @top_artists.each do | artist | %>
-  <%= artist.name %>
-  <%= '------------' %>
-  <%= artist.images[-1]['url'] %>
-  <%= '------------' %>
-  <%= artist.popularity %>
-
-<% end %>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="last-month" role="tabpanel" aria-labelledby="last-month-tab">
+      <div class="row">
+        <% @top_artists_short_term.each do | artist | %>
+          <%= render partial: "spotify_users/partials/top_artists", locals: {artist: artist} %>
+        <% end %>
+      </div>
+    </div>
+    <% @number_count = 0 %>
+    <div class="tab-pane fade" id="half-year" role="tabpanel" aria-labelledby="half-year-tab">
+      <div class="row">
+        <% @top_artists_medium_term.each do | artist | %>
+          <%= render partial: "spotify_users/partials/top_artists", locals: {artist: artist} %>
+        <% end %>
+      </div>
+    </div>
+    <% @number_count = 0 %>
+    <div class="tab-pane fade" id="all-time" role="tabpanel" aria-labelledby="all-time-tab">
+      <div class="row">
+        <% @top_artists_long_term.each do | artist | %>
+          <%= render partial: "spotify_users/partials/top_artists", locals: {artist: artist} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
