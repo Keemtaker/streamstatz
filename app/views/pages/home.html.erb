@@ -1,5 +1,51 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<br>
+<main role="main">
 
-<%= link_to 'Sign in with Spotify', '/auth/spotify' %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Discover your spotify statistics</h1>
+      <p>Get to know your spotify favorite tracks, top artists and genres taste in over 3 different time periods listed below;</p>
+      <ul>
+        <li>Last 4 weeks 🎶</li>
+        <li>Last 6 months 🔥</li>
+        <li>All time ⭐️</li>
+      </ul>
+      <p><%= link_to "Login with Spotify", "'/auth/spotify'", class:"btn btn-success btn-lg"%></p>
+    </div>
+  </div>
 
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+        <!-- START THE FEATURETTES -->
+
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">How popular are your top tracks and artists? <span class="text-muted">Find out!</span></h2>
+      <p class="lead">StreamStatz display spotify popularity metrics for both tracks and artists.</p>
+      <p class="lead">The Spotify Popularity Index is a 0-to-100 score that ranks how popular an artist or track is relative to other artists or tracks on Spotify.</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag "spotify-home.jpg", class: "featurette-image img-fluid mx-auto", alt: "Square Online Sales picture"%>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading">Create a Playlist from your favorite tracks. <span class="text-muted">Never skip a song again</span></h2>
+      <p class="lead">Quickly setup a playlist with your most listened songs</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <%= image_tag "claus-grunstaudl-dKeB0-M9iiA-unsplash.jpg", class: "featurette-image img-fluid mx-auto", alt: "Square Online Sales picture"%>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  </div><!-- /.container -->
