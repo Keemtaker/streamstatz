@@ -1,18 +1,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid container">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", size: "40x40" %>
+    <%= link_to "/", class: "navbar-brand" do %>
+      <span style="color: #1ED760;">STREAMSTATZ</span>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
         <% nav_options = {"Top Tracks": "spotify_top_tracks", "Top Artists": "spotify_top_artists", "Recently Played": "spotify_recently_played", "Favorite Genres": "spotify_user_genres"} %>
         <% if user_signed_in? %>
           <% nav_options.each do | key, value | %>
@@ -34,7 +30,7 @@
 
         <% else %>
           <%= link_to "/auth/spotify" do %>
-            <span style="text-decoration: none !important;"><%= image_tag "spotify.png", size: "20x20" %> Login</span>
+            <span class="navbar-text"><%= image_tag "spotify.png", size: "20x20" %> Login</span>
           <% end %>
         <% end %>
       </span>
