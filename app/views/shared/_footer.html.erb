@@ -6,16 +6,19 @@
         <div class="links ml-auto mr-auto">
           <ul>
             <% nav_options = {"Top Tracks": "spotify_top_tracks", "Top Artists": "spotify_top_artists", "Recently Played": "spotify_recently_played", "Favorite Genres": "spotify_user_genres"} %>
+            <li class="nav-item">
+              <%= link_to "Home", "/", class: "nav-link" %>
+            </li>
             <% if user_signed_in? %>
               <% nav_options.each do | key, value | %>
                 <li>
-                  <%= link_to key, value, class: "nav-link" %>
+                  <%= link_to key, value %>
                 </li>
               <% end %>
             <% else %>
               <% nav_options.each do | key, value | %>
                 <li>
-                  <%= link_to key, '/auth/spotify', class: "nav-link" %>
+                  <%= link_to key, '/auth/spotify' %>
                 </li>
               <% end %>
             <% end %>
