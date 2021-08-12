@@ -26,6 +26,23 @@ class SpotifyUsersController < ApplicationController
    spotify_top_artists
   end
 
+  def spotify_create_playlist
+    initialize_spotify_user
+    if params[:time_period] == "short_term"
+      tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 50)
+      playlist = initialize_spotify_user.create_playlist!("Monthly Top Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
+      playlist.add_tracks!(tracks)
+    elsif params[:time_period] == "medium_term"
+      tracks = initialize_spotify_user.top_tracks(time_range: 'medium_term', limit: 50)
+      playlist = initialize_spotify_user.create_playlist!("6 Months Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
+      playlist.add_tracks!(tracks)
+    elsif params[:time_period] == "long_term"
+      tracks = initialize_spotify_user.top_tracks(time_range: 'long_term', limit: 50)
+      playlist = initialize_spotify_user.create_playlist!("All Time Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
+      playlist.add_tracks!(tracks)
+    end
+  end
+
   private
 
   def initialize_spotify_user

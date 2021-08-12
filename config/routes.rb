@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get 'spotify_recently_played', to: "spotify_users#spotify_recently_played"
   get 'spotify_user_genres', to: "spotify_users#spotify_user_genres"
 
+  post 'spotify_create_playlist', to: "spotify_users#spotify_create_playlist"
+
+
 end
