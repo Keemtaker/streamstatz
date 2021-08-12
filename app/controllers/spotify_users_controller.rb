@@ -31,15 +31,21 @@ class SpotifyUsersController < ApplicationController
     if params[:time_period] == "short_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("Monthly Top Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
-      playlist.add_tracks!(tracks)
+      response = playlist.add_tracks!(tracks)
+      flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+      redirect_to action: "spotify_top_tracks" if response.first.name.present?
     elsif params[:time_period] == "medium_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'medium_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("6 Months Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
-      playlist.add_tracks!(tracks)
+      response = playlist.add_tracks!(tracks)
+      flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+      redirect_to action: "spotify_top_tracks" if response.first.name.present?
     elsif params[:time_period] == "long_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'long_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("All Time Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
-      playlist.add_tracks!(tracks)
+      response = playlist.add_tracks!(tracks)
+      flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+      redirect_to action: "spotify_top_tracks" if response.first.name.present?
     end
   end
 
