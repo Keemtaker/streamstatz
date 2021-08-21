@@ -1,3 +1,21 @@
+en:
+  pages:
+    home:
+      page_header: "Discover your Spotify statistics"
+      page_description: "Get to know your spotify favorite tracks, top artists and genres taste in over 3 different time periods listed below;"
+      last_month: "Last 4 weeks"
+      last_6_months: "Last 6 months"
+      all_time: "All time"
+      spotify_login: "Login with Spotify"
+      spotify_text_1: "How popular are your top tracks and artists?"
+      spotify_text_2: "Find out with Spotify Popularity Index"
+      spotify_text_3: "StreamStatz display spotify popularity index for both tracks and artists"
+      spotify_text_4: "The Spotify Popularity Index is a 0-to-100 score that ranks how popular an artist or track is relative to other artists or tracks on Spotify"
+      spotify_text_5: "Create a Playlist from your favorite tracks"
+      spotify_text_6: "Never skip a song again"
+      spotify_text_7: "Quickly setup a playlist with your most listened songs"
+
+
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -29,5 +47,4 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+

@@ -1,0 +1,17 @@
+fr:
+  pages:
+    home:
+      page_header: "Découvrez vos statistiques Spotify"
+      page_description: "Apprenez à connaître vos morceaux préférés sur spotify, les meilleurs artistes et les goûts des genres dans plus de 3 périodes différentes énumérées ci-dessous;"
+      last_month: "4 dernières semaines"
+      last_6_months: "6 derniers mois"
+      all_time: "Tout le temps"
+      spotify_login: "Connectez-vous avec Spotify"
+      spotify_text_1: "Quelle est la popularité de vos meilleurs morceaux et artistes?"
+      spotify_text_2: "Découvrez-le avec l'indice de popularité Spotify"
+      spotify_text_3: "StreamStatz affiche l'indice de popularité Spotify pour les morceaux et les artistes"
+      spotify_text_4: "L'indice de popularité Spotify est un score de 0 à 100 qui classe la popularité d'un artiste ou d'une piste par rapport à d'autres artistes ou pistes sur Spotify"
+      spotify_text_5: "Créez une liste de lecture à partir de vos morceaux préférés"
+      spotify_text_6: "Ne sautez plus jamais une chanson"
+      spotify_text_7: "Configurez rapidement une liste de lecture avec vos chansons les plus écoutées"
+

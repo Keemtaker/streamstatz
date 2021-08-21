@@ -1,0 +1,18 @@
+es:
+  pages:
+    home:
+      page_header: "Descubra sus estadísticas de Spotify"
+      page_description: "Conozca sus pistas favoritas de Spotify, los mejores artistas y géneros en más de 3 períodos de tiempo diferentes que se enumeran a continuación;"
+      last_month: "Últimas 4 semanas"
+      last_6_months: "Últimos 6 meses"
+      all_time: "Todo el tiempo"
+      spotify_login: "Iniciar sesión con Spotify"
+      spotify_text_1: "¿Qué tan populares son tus mejores canciones y artistas?"
+      spotify_text_2: "Descúbrelo con el índice de popularidad de Spotify"
+      spotify_text_3: "StreamStatz muestra el índice de popularidad de Spotify tanto para pistas como para artistas"
+      spotify_text_4: "El índice de popularidad de Spotify es una puntuación de 0 a 100 que clasifica la popularidad de un artista o pista en relación con otros artistas o pistas en Spotify"
+      spotify_text_5: "Crea una lista de reproducción a partir de tus pistas favoritas"
+      spotify_text_6: "Nunca más te saltes una canción"
+      spotify_text_7: "Configura rápidamente una lista de reproducción con tus canciones más escuchadas"
+
+
