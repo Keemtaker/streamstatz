@@ -1,11 +1,17 @@
 en:
+  top_tracks: "Top Tracks"
+  top_artists: "Top Artists"
+  recently_played: "Recently Played"
+  favorite_genres: "Favorite Genres"
+  login: "Login"
+  logout: "Log Out"
   pages:
     home:
       page_header: "Discover your Spotify statistics"
       page_description: "Get to know your spotify favorite tracks, top artists and genres taste in over 3 different time periods listed below;"
-      last_month: "Last 4 weeks"
-      last_6_months: "Last 6 months"
-      all_time: "All time"
+      last_month: "Last Month"
+      last_6_months: "Last 6 Months"
+      all_time: "All Time"
       spotify_login: "Login with Spotify"
       spotify_text_1: "How popular are your top tracks and artists?"
       spotify_text_2: "Find out with Spotify Popularity Index"
@@ -14,6 +20,22 @@ en:
       spotify_text_5: "Create a Playlist from your favorite tracks"
       spotify_text_6: "Never skip a song again"
       spotify_text_7: "Quickly setup a playlist with your most listened songs"
+  spotify_users:
+    emoji: "The emoji"
+    track_popularity: "displays the popularity of the track on spotify"
+    spotify_top_tracks:
+      your_top_tracks: "Your Top Tracks"
+      create_playlist: "Create a Playlist 😎"
+      create_playlist_text: "You dont have to skip a track again 😜"
+    spotify_top_artists:
+      your_top_artists: "Your Top Artists"
+      artists_popularity: "displays the popularity of the artist on spotify"
+    spotify_recently_played:
+      recently_played: "Recently Played Tracks"
+    spotify_user_genres:
+      favorite_genres: "Favorite Genres"
+
+
 
 
 # Files in the config/locales directory are used for internationalization

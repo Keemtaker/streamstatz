@@ -1,8 +1,8 @@
 <br>
 <div class="container">
   <br>
-  <h2 class="lead">Recently Played</h3>
-  <p class="d-none d-md-block"> The emoji <i class="fas fa-fire"></i> displays the popularity of the track on spotify</p>
+  <h2 class="lead"><%= t('.recently_played') %></h3>
+  <p class="d-none d-md-block"> <%= t('spotify_users.emoji') %> <i class="fas fa-fire"></i> <%= t('spotify_users.track_popularity') %></p>
 
   <div class="row">
     <% @recently_played.each do | recently |  %>

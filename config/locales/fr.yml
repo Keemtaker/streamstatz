@@ -1,11 +1,17 @@
 fr:
+  top_tracks: "Meilleures Chansons"
+  top_artists: "Meilleurs Artistes"
+  recently_played: "Joué Récemment"
+  favorite_genres: "Genres Préférés"
+  login: "Connexion"
+  logout: "Se Déconnecter"
   pages:
     home:
       page_header: "Découvrez vos statistiques Spotify"
       page_description: "Apprenez à connaître vos morceaux préférés sur spotify, les meilleurs artistes et les goûts des genres dans plus de 3 périodes différentes énumérées ci-dessous;"
-      last_month: "4 dernières semaines"
-      last_6_months: "6 derniers mois"
-      all_time: "Tout le temps"
+      last_month: "Le Mois Dernier"
+      last_6_months: "6 Derniers Mois"
+      all_time: "Tout le Temps"
       spotify_login: "Connectez-vous avec Spotify"
       spotify_text_1: "Quelle est la popularité de vos meilleurs morceaux et artistes?"
       spotify_text_2: "Découvrez-le avec l'indice de popularité Spotify"
@@ -14,4 +20,17 @@ fr:
       spotify_text_5: "Créez une liste de lecture à partir de vos morceaux préférés"
       spotify_text_6: "Ne sautez plus jamais une chanson"
       spotify_text_7: "Configurez rapidement une liste de lecture avec vos chansons les plus écoutées"
-
+  spotify_users:
+    emoji: "L'emoji"
+    track_popularity: "affiche la popularité du morceau sur spotify"
+    spotify_top_tracks:
+      your_top_tracks: "Vos Meilleurs Morceaux"
+      create_playlist: "Créer une liste de lecture 😎"
+      create_playlist_text: "Vous n'avez plus besoin de sauter une piste 😜"
+    spotify_top_artists:
+      your_top_artists: "Vos Meilleurs Artistes"
+      artists_popularity: "affiche la popularité des artistes sur spotify"
+    spotify_recently_played:
+      recently_played: "Chansons Récemment Jouées"
+    spotify_user_genres:
+      favorite_genres: "Genres Préférés"
