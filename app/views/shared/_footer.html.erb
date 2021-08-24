@@ -5,20 +5,17 @@
       <div class="col-xs-12 ml-auto mr-auto ">
         <div class="links ml-auto mr-auto">
           <ul>
-            <% nav_options = {"Top Tracks": "spotify_top_tracks", "Top Artists": "spotify_top_artists", "Recently Played": "spotify_recently_played", "Favorite Genres": "spotify_user_genres"} %>
-            <li class="nav-item">
-              <%= link_to "Home", "/", class: "nav-link" %>
-            </li>
+            <% nav_options = {"top_tracks": "spotify_top_tracks", "top_artists": "spotify_top_artists", "recently_played": "spotify_recently_played", "favorite_genres": "spotify_user_genres"} %>
             <% if user_signed_in? %>
               <% nav_options.each do | key, value | %>
                 <li>
-                  <%= link_to key, value %>
+                  <%= link_to t(key), value %>
                 </li>
               <% end %>
             <% else %>
               <% nav_options.each do | key, value | %>
                 <li>
-                  <%= link_to key, '/auth/spotify' %>
+                  <%= link_to t(key), '/auth/spotify' %>
                 </li>
               <% end %>
             <% end %>

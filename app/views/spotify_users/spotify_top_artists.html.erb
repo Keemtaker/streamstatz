@@ -1,8 +1,8 @@
 <br>
 <div class="container">
   <br>
-   <h2 class="lead">Your Top Artists</h3>
-  <p class="d-none d-md-block"> The emoji <i class="fas fa-fire"></i> displays the popularity of the artist on spotify</p>
+   <h2 class="lead"><%= t('.your_top_artists') %></h3>
+  <p class="d-none d-md-block"> <%= t('spotify_users.emoji') %> <i class="fas fa-fire"></i> <%= t('.artists_popularity') %></p>
   <%= render partial: "spotify_users/partials/tabs" %>
 
   <div class="tab-content" id="myTabContent">

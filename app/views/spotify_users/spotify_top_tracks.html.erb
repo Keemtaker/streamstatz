@@ -1,8 +1,8 @@
 <div class="container">
   <br>
-  <h2 class="lead">Your Top Tracks</h3>
+  <h2 class="lead"><%= t('.your_top_tracks') %></h3>
 
-  <p class="d-none d-md-block"> The emoji <i class="fas fa-fire"></i> displays the popularity of the track on spotify</p>
+  <p class="d-none d-md-block"> <%= t('spotify_users.emoji') %> <i class="fas fa-fire"></i> <%= t('spotify_users.track_popularity') %></p>
 
   <%= render partial: "spotify_users/partials/tabs" %>
 
@@ -12,14 +12,14 @@
       <% @top_tracks_short_term.flatten.each do | track | %>
         <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
       <% end %>
-      <span><%= link_to "Create a Playlist 😎", spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-lg" %> You dont have to skip a track again 😜</span>
+      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-lg" %> <%= t('.create_playlist_text') %></span>
     </div>
     <% @number_count = 0 %>
     <div class="tab-pane fade" id="half-year" role="tabpanel" aria-labelledby="half-year-tab">
       <% @top_tracks_medium_term.flatten.each do | track | %>
         <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
       <% end %>
-      <span><%= link_to "Create a Playlist 😎", spotify_create_playlist_path(:time_period=> 'medium_term'), method: :post, class: "btn btn-success btn-lg" %> You dont have to skip a track again 😜</span>
+      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'medium_term'), method: :post, class: "btn btn-success btn-lg" %> t('.create_playlist_text')</span>
 
     </div>
     <% @number_count = 0 %>
@@ -27,7 +27,7 @@
       <% @top_tracks_long_term.flatten.each do | track | %>
         <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
       <% end %>
-      <span><%= link_to "Create a Playlist 😎", spotify_create_playlist_path(:time_period=> 'long_term'), method: :post, class: "btn btn-success btn-lg" %> You dont have to skip a track again 😜</span>
+      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'long_term'), method: :post, class: "btn btn-success btn-lg" %> t('.create_playlist_text')</span>
     </div>
   </div>
 

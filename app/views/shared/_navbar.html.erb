@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid container">
-    <%= link_to "/", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <span style="color: #1ED760;">STREAMSTATZ</span>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,30 +9,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <% nav_options = {"Top Tracks": "spotify_top_tracks", "Top Artists": "spotify_top_artists", "Recently Played": "spotify_recently_played", "Favorite Genres": "spotify_user_genres"} %>
+        <% nav_options = {"top_tracks": "spotify_top_tracks", "top_artists": "spotify_top_artists", "recently_played": "spotify_recently_played", "favorite_genres": "spotify_user_genres"} %>
         <% if user_signed_in? %>
           <% nav_options.each do | key, value | %>
             <li class="nav-item">
-              <%= link_to key, value, class: "nav-link" %>
+              <%= link_to t(key), value, class: "nav-link" %>
             </li>
           <% end %>
         <% else %>
           <% nav_options.each do | key, value | %>
             <li class="nav-item' %>">
-              <%= link_to key, '/auth/spotify', class: "nav-link" %>
+              <%= link_to t(key), '/auth/spotify', class: "nav-link" %>
             </li>
           <% end %>
         <% end %>
       </ul>
       <span class="navbar-text">
         <% if user_signed_in? %>
-          <%= link_to "Log Out", destroy_user_session_path, method: 'delete' %>
+          <%= link_to t('logout'), destroy_user_session_path, method: 'delete' %>
         <% else %>
           <%= link_to "/auth/spotify" do %>
-            <span class="navbar-text"><%= image_tag "spotify.png", size: "20x20" %> Login</span>
+            <span class="navbar-text"><%= image_tag "spotify.png", size: "20x20" %> <%= t('login') %></span>
           <% end %>
         <% end %>
       </span>
     </div>
   </div>
 </nav>
+
