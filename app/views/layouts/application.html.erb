@@ -11,15 +11,23 @@
       gtag('config', 'G-Z7H425W9ZP');
     </script>
 
-    <title>Streamstatz</title>
+    <title>Spotify Statistics | StreamStatz</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta name="description" content= "<%= t('meta_description') %>" >
+    <meta name="keywords" content="<%= t('meta_keywords') %>">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= favicon_link_tag asset_path('favicon.png') %>
+
+    <link rel="alternate" hreflang="en" href="/" />
+    <link rel="alternate" hreflang="fr" href="/fr" />
+    <link rel="alternate" hreflang="es" href="/es" />
+
   </head>
 
   <body>
