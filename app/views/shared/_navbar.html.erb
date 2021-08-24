@@ -9,7 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <% nav_options = {"top_tracks": "spotify_top_tracks", "top_artists": "spotify_top_artists", "recently_played": "spotify_recently_played", "favorite_genres": "spotify_user_genres"} %>
+        <% nav_options = {"top_tracks": spotify_top_tracks_path, "top_artists": spotify_top_artists_path, "recently_played": spotify_recently_played_path, "favorite_genres": spotify_user_genres_path} %>
         <% if user_signed_in? %>
           <% nav_options.each do | key, value | %>
             <li class="nav-item">
