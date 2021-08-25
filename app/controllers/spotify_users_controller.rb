@@ -32,20 +32,29 @@ class SpotifyUsersController < ApplicationController
       tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("Monthly Top Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
-      flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
-      redirect_to action: "spotify_top_tracks" if response.first.name.present?
+      if response.first.name.present?
+        flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+        redirect_to action: "spotify_top_tracks"
+        playlist_slack_notification(playlist)
+      end
     elsif create_playlist_params[:time_period] == "medium_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'medium_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("6 Months Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
-      flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
-      redirect_to action: "spotify_top_tracks" if response.first.name.present?
+      if response.first.name.present?
+        flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+        redirect_to action: "spotify_top_tracks"
+        playlist_slack_notification(playlist)
+      end
     elsif create_playlist_params[:time_period] == "long_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'long_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("All Time Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
-      flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
-      redirect_to action: "spotify_top_tracks" if response.first.name.present?
+      if response.first.name.present?
+        flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+        redirect_to action: "spotify_top_tracks"
+        playlist_slack_notification(playlist)
+      end
     end
   end
 
@@ -64,6 +73,10 @@ class SpotifyUsersController < ApplicationController
 
   def create_playlist_params
     params.permit(:time_period)
+  end
+
+  def playlist_slack_notification(playlist_value)
+    SlackNotifier::PLAYLIST_SLACK.ping("🎶🔥 New playlist\nUsername: #{playlist_value.owner.display_name}. See at #{playlist_value.owner.external_urls['spotify']}\nPlaylist_url: #{playlist_value.external_urls['spotify']}")
   end
 
 end
