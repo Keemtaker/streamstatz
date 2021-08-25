@@ -19,7 +19,7 @@
       <% @top_tracks_medium_term.flatten.each do | track | %>
         <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
       <% end %>
-      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'medium_term'), method: :post, class: "btn btn-success btn-lg" %> t('.create_playlist_text')</span>
+      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'medium_term'), method: :post, class: "btn btn-success btn-lg" %> <%= t('.create_playlist_text') %></span>
 
     </div>
     <% @number_count = 0 %>
@@ -27,7 +27,7 @@
       <% @top_tracks_long_term.flatten.each do | track | %>
         <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
       <% end %>
-      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'long_term'), method: :post, class: "btn btn-success btn-lg" %> t('.create_playlist_text')</span>
+      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'long_term'), method: :post, class: "btn btn-success btn-lg" %> <%= t('.create_playlist_text') %></span>
     </div>
   </div>
 
