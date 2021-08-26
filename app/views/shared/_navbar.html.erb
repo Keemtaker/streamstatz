@@ -23,6 +23,16 @@
             </li>
           <% end %>
         <% end %>
+        <span class="dropdown navbar-text">
+        <a class="dropdown-toggle" href="#" id="dropdownMenuButton1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          🌐<%= I18n.locale.upcase %>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to "English", { :locale=>'' }, class: "dropdown-item" %></li>
+          <li><%= link_to "Français", { :locale=>'fr' }, class: "dropdown-item" %></li>
+          <li><%= link_to "Español", { :locale=>'es' }, class: "dropdown-item" %></li>
+        </ul>
+      </span>
       </ul>
       <span class="navbar-text">
         <% if user_signed_in? %>
@@ -36,4 +46,5 @@
     </div>
   </div>
 </nav>
+
 
