@@ -29,6 +29,7 @@ fr:
       your_top_tracks: "Vos Meilleurs Morceaux"
       create_playlist: "Créer une liste de lecture 😎"
       create_playlist_text: "Vous n'avez plus besoin de sauter une piste 😜"
+      playlist_alert: "Joli! Votre incroyable playlist est sur spotify 🎉"
     spotify_top_artists:
       your_top_artists: "Vos Meilleurs Artistes"
       artists_popularity: "affiche la popularité des artistes sur spotify"

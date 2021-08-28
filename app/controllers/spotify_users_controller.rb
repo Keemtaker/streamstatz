@@ -30,28 +30,28 @@ class SpotifyUsersController < ApplicationController
     initialize_spotify_user
     if create_playlist_params[:time_period] == "short_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 50)
-      playlist = initialize_spotify_user.create_playlist!("Monthly Top Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
+      playlist = initialize_spotify_user.create_playlist!("#{t('pages.home.last_month')} Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
       if response.first.name.present?
-        flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+        flash[:alert] = t('spotify_users.spotify_top_tracks.playlist_alert')
         redirect_to action: "spotify_top_tracks"
         playlist_slack_notification(playlist)
       end
     elsif create_playlist_params[:time_period] == "medium_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'medium_term', limit: 50)
-      playlist = initialize_spotify_user.create_playlist!("6 Months Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
+      playlist = initialize_spotify_user.create_playlist!("#{t('pages.home.last_6_months')} Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
       if response.first.name.present?
-        flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+        flash[:alert] = t('spotify_users.spotify_top_tracks.playlist_alert')
         redirect_to action: "spotify_top_tracks"
         playlist_slack_notification(playlist)
       end
     elsif create_playlist_params[:time_period] == "long_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'long_term', limit: 50)
-      playlist = initialize_spotify_user.create_playlist!("All Time Tops Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
+      playlist = initialize_spotify_user.create_playlist!("#{t('pages.home.all_time')} Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
       if response.first.name.present?
-        flash[:notice] = "Nice! Your amazing playlist is on spotify 🎉"
+        flash[:alert] = t('spotify_users.spotify_top_tracks.playlist_alert')
         redirect_to action: "spotify_top_tracks"
         playlist_slack_notification(playlist)
       end

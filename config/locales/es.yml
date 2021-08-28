@@ -29,6 +29,7 @@ es:
       your_top_tracks: "Tus Mejores Pistas"
       create_playlist: "Crear una lista de reproducción 😎"
       create_playlist_text: "No tienes que saltarte una pista de nuevo 😜"
+      playlist_alert: "¡Bonito! Tu increíble lista de reproducción está en spotify 🎉"
     spotify_top_artists:
       your_top_artists: "Tus Mejores Artistas"
       artists_popularity: "muestra la popularidad de los artistas en spotify"
