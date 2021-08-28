@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     user.save!
     if user.save
       sign_in user
-      redirect_to spotify_top_tracks_path
+      redirect_to spotify_top_tracks_path(set_locale)
     else
       redirect_to root_path
     end
