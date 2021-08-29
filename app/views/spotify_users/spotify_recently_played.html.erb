@@ -6,46 +6,30 @@
 
   <div class="row">
     <% @recently_played.each do | recently |  %>
-
-      <div class="col-sm-1">
-        <%= @number_count += 1 %>
-      </div>
-      <div class="col-sm-3">
-        <div class="d-none d-md-block">
-          <i class='fas fa-music'></i>
-        </div>
-        <%= recently.name %>
-      </div>
-      <div class="col-sm-3">
-        <div class="d-none d-md-block">
-          <i class="fas fa-microphone-alt"></i>
-        </div>
-        <div>
-          <%= recently.artists.first.name %>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="d-none d-md-block">
-          <i class="fas fa-clock"></i>
-        </div>
-        <div>
-          <% spotify_time = recently.played_at.split('T') %>
-          <% played_date = spotify_time.first %>
-          <% played_time_full = spotify_time.last.split(':') %>
-          <% played_time = played_time_full.first + ':' + played_time_full.second %>
-          <%= played_date %>, <%= played_time %>
-        </div>
-      </div>
       <div class="col-sm-2">
-        <div class="d-none d-md-block">
-          <i class="fas fa-fire"></i>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <i class="fas fa-microphone-alt"></i>
+              <%= recently.artists.first.name %>
+            </div>
+          </div>
+          <%= image_tag recently.album.images[0]["url"], alt: recently.name, class: 'card-img-top' %>
+          <div class="card-body">
+            <h7 class="card-title"><%= @number_count += 1 %>.  <span><%= recently.name %></span></h7>
+            <br>
+            <h8 class="card-title"><i class="fas fa-fire text-center"></i>  <span><%= recently.popularity %>/100</span></h8>
+            <div>
+              <% spotify_time = recently.played_at.split('T') %>
+              <% played_date = spotify_time.first %>
+              <% played_time_full = spotify_time.last.split(':') %>
+              <% played_time = played_time_full.first + ':' + played_time_full.second %>
+              <h8 class="card-title"><i class="fas fa-clock text-center"></i>  <span><%= played_date %>, <%= played_time %></span></h8>
+            </div>
+          </div>
         </div>
-        <div>
-          <%= recently.popularity  %>/100
-        </div>
+        <br>
       </div>
-      <hr />
-      <br>
     <% end %>
   </div>
 </div>

@@ -28,7 +28,7 @@ en:
     spotify_top_tracks:
       your_top_tracks: "Your Top Tracks"
       create_playlist: "Create a Playlist 😎"
-      create_playlist_text: "You dont have to skip a track again 😜"
+      create_playlist_text: "You don't have to skip a track again 😜"
       playlist_alert: "Nice! Your amazing playlist is on spotify 🎉"
     spotify_top_artists:
       your_top_artists: "Your Top Artists"
