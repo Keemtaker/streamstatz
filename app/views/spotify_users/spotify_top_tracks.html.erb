@@ -8,26 +8,39 @@
 
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="last-month" role="tabpanel" aria-labelledby="last-month-tab">
-
-      <% @top_tracks_short_term.flatten.each do | track | %>
-        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
-      <% end %>
-      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-lg" %> <%= t('.create_playlist_text') %></span>
+      <div class="row">
+        <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-md" %> <%= t('.create_playlist_text') %></span>
+        <br>
+        <br>
+        <br>
+        <% @top_tracks_short_term.flatten.each do | track | %>
+          <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+        <% end %>
+      </div>
     </div>
     <% @number_count = 0 %>
     <div class="tab-pane fade" id="half-year" role="tabpanel" aria-labelledby="half-year-tab">
-      <% @top_tracks_medium_term.flatten.each do | track | %>
-        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
-      <% end %>
-      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'medium_term'), method: :post, class: "btn btn-success btn-lg" %> <%= t('.create_playlist_text') %></span>
-
+      <div class="row">
+        <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-md" %> <%= t('.create_playlist_text') %></span>
+        <br>
+        <br>
+        <br>
+        <% @top_tracks_medium_term.flatten.each do | track | %>
+          <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+        <% end %>
+      </div>
     </div>
     <% @number_count = 0 %>
     <div class="tab-pane fade" id="all-time" role="tabpanel" aria-labelledby="all-time-tab">
-      <% @top_tracks_long_term.flatten.each do | track | %>
-        <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
-      <% end %>
-      <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'long_term'), method: :post, class: "btn btn-success btn-lg" %> <%= t('.create_playlist_text') %></span>
+      <div class="row">
+        <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-md" %> <%= t('.create_playlist_text') %></span>
+        <br>
+        <br>
+        <br>
+        <% @top_tracks_long_term.flatten.each do | track | %>
+          <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
+        <% end %>
+      </div>
     </div>
   </div>
 

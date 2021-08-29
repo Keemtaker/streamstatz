@@ -1,34 +1,17 @@
-<div class="row">
-  <div class="col-sm-1">
-    <%= @number_count += 1 %>
-  </div>
-  <div class="col-sm-2 col-md-offset-1">
-    <%= image_tag track.album.images[0]["url"], size: "40x40", alt: track.name  %>
-  </div>
-  <div class="col-sm-3">
-    <div class="d-none d-md-block">
-      <i class='fas fa-music'></i>
+<div class="col-sm-2">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <i class="fas fa-microphone-alt"></i>
+        <%= track.artists[0].name  %>
+      </div>
     </div>
-    <div>
-      <%= track.name %>
-    </div>
-  </div>
-  <div class="col-sm-3">
-    <div class="d-none d-md-block">
-      <i class="fas fa-microphone-alt"></i>
-    </div>
-    <div>
-      <%= track.artists[0].name  %>
+    <%= image_tag track.album.images[0]["url"], alt: track.name, class: 'card-img-top' %>
+    <div class="card-body">
+      <h7 class="card-title"><%= @number_count += 1 %>.  <span><%= track.name %></span></h7>
+      <br>
+      <h8 class="card-title"><i class="fas fa-fire text-center"></i>  <span><%= track.popularity %>/100</span></h8>
     </div>
   </div>
-  <div class="col-sm-2">
-    <div class="d-none d-md-block">
-      <i class="fas fa-fire"></i>
-    </div>
-    <div>
-      <%= track.popularity  %>/100
-    </div>
-  </div>
+  <br>
 </div>
-<hr />
-<br>
