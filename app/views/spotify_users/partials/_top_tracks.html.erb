@@ -6,11 +6,15 @@
         <%= track.artists[0].name  %>
       </div>
     </div>
-    <%= image_tag track.album.images[0]["url"], alt: track.name, class: 'card-img-top' %>
+    <% if track.album.images[0].present? %>
+      <%= image_tag track.album.images[0]["url"], alt: track.name, class: 'card-img-top' %>
+    <% else %>
+      <%= image_tag "spotify-home.jpg", class: 'card-img-top' %>
+    <% end %>
     <div class="card-body">
       <h7 class="card-title"><%= @number_count += 1 %>.  <span><%= track.name %></span></h7>
       <br>
-      <h8 class="card-title"><i class="fas fa-fire text-center"></i>  <span><%= track.popularity %>/100</span></h8>
+      <h8 class="card-title"><i class="fas fa-fire text-center"></i>  <span><%= track&.popularity %>/100</span></h8>
     </div>
   </div>
   <br>
