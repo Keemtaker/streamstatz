@@ -1,16 +1,16 @@
 fr:
-  meta_description: "Apprenez à connaître vos statistiques Spotify. Découvrez vos meilleurs morceaux spotify, vos meilleurs artistes, vos genres préférés et découvrez la popularité de vos meilleurs morceaux ou artistes"
-  meta_keywords: "statistiques spotify, statistiques pour spotify, popularité des artistes, popularité de la piste, genre préféré, enveloppé, musique en streaming"
+  meta_description: "Connaître vos statistiques Spotify. Découvrez vos meilleurs morceaux spotify, vos meilleurs artistes, vos genres préférés et découvrez la popularité de vos meilleurs morceaux ou artistes"
+  meta_keywords: "statistiques spotify, statistiques pour spotify, popularité des artistes, popularité de la morceaux, genre préféré, enveloppé, musique en streaming"
   top_tracks: "Meilleures Chansons"
-  top_artists: "Meilleurs Artistes"
-  recently_played: "Joué Récemment"
+  top_artists: "Artistes Préférés"
+  recently_played: "Récemment Jouées"
   favorite_genres: "Genres Préférés"
   login: "Connexion"
   logout: "Se Déconnecter"
   pages:
     home:
       page_header: "Découvrez vos statistiques Spotify"
-      page_description: "Apprenez à connaître vos morceaux préférés sur spotify, les meilleurs artistes et les goûts des genres dans plus de 3 périodes différentes énumérées ci-dessous;"
+      page_description: "Connaître vos morceaux préférés sur spotify, les meilleurs artistes et les goûts des genres dans plus de 3 périodes différentes énumérées ci-dessous;"
       last_month: "Le Mois Dernier"
       last_6_months: "6 Derniers Mois"
       all_time: "Tout le Temps"
@@ -18,7 +18,7 @@ fr:
       spotify_text_1: "Quelle est la popularité de vos meilleurs morceaux et artistes?"
       spotify_text_2: "Découvrez-le avec l'indice de popularité Spotify"
       spotify_text_3: "StreamStatz affiche l'indice de popularité Spotify pour les morceaux et les artistes"
-      spotify_text_4: "L'indice de popularité Spotify est un score de 0 à 100 qui classe la popularité d'un artiste ou d'une piste par rapport à d'autres artistes ou pistes sur Spotify"
+      spotify_text_4: "L'indice de popularité Spotify est un score de 0 à 100 qui classe la popularité d'un artiste ou d'une morceaux par rapport à d'autres artistes ou morceaux sur Spotify"
       spotify_text_5: "Créez une liste de lecture à partir de vos morceaux préférés"
       spotify_text_6: "Ne sautez plus jamais une chanson"
       spotify_text_7: "Configurez rapidement une liste de lecture avec vos chansons les plus écoutées"
@@ -28,10 +28,10 @@ fr:
     spotify_top_tracks:
       your_top_tracks: "Vos Meilleurs Morceaux"
       create_playlist: "Créer une liste de lecture 😎"
-      create_playlist_text: "Vous n'avez plus besoin de sauter une piste 😜"
+      create_playlist_text: "Vous n'avez plus besoin de sauter une morceaux 😜"
       playlist_alert: "Joli! Votre incroyable playlist est sur spotify 🎉"
     spotify_top_artists:
-      your_top_artists: "Vos Meilleurs Artistes"
+      your_top_artists: " Vos artistes préférés "
       artists_popularity: "affiche la popularité des artistes sur spotify"
     spotify_recently_played:
       recently_played: "Chansons Récemment Jouées"
