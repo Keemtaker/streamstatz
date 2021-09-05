@@ -25,19 +25,18 @@
 <div class="container">
   <br>
   <p><%= image_tag wicked_pdf_asset_base64('spotify.png'), size: "150x150" %></p>
-  <h1> <%= t('top_tracks') %> | <%= @time_period %></h1>
+  <h1> <%= t('top_artists') %> | <%= @time_period %></h1>
   <h1 style="color: #1ED760;">StreamStatz.com</h1>
   <br>
-   <% if @tracks.first.album.images[0].present? %>
-    <%= image_tag @tracks.first.album.images[0]["url"], alt: @tracks.first.name, size: "300x300" %>
+  <% if @artists.first.images[0].present? %>
+    <%= image_tag @artists.first.images[0]['url'], alt: @artists.first.name, size: "300x300"  %>
   <% else %>
     <%= image_tag wicked_pdf_asset_base64('spotify-home.jpg'), size: "300x300" %>
   <% end %>
   <br>
   <br>
-  <% @tracks.take(5).each do | track | %>
-    <div class="track-style"><%= track.name %></div>
-    <div class="artist-style">| <%= track.artists[0].name  %> |</div>
+  <% @artists.take(10).each do | artist | %>
+    <div class="track-style"><%= artist.name %></div>
     <br>
   <% end %>
   <br>

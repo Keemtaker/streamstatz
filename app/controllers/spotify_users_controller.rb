@@ -29,7 +29,7 @@ class SpotifyUsersController < ApplicationController
 
   def spotify_create_playlist
     initialize_spotify_user
-    if create_playlist_params[:time_period] == "short_term"
+    if time_period_params[:time_period] == "short_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("#{t('pages.home.last_month')} Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
@@ -38,7 +38,7 @@ class SpotifyUsersController < ApplicationController
         redirect_to action: "spotify_top_tracks"
         playlist_slack_notification(playlist)
       end
-    elsif create_playlist_params[:time_period] == "medium_term"
+    elsif time_period_params[:time_period] == "medium_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'medium_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("#{t('pages.home.last_6_months')} Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
@@ -47,7 +47,7 @@ class SpotifyUsersController < ApplicationController
         redirect_to action: "spotify_top_tracks"
         playlist_slack_notification(playlist)
       end
-    elsif create_playlist_params[:time_period] == "long_term"
+    elsif time_period_params[:time_period] == "long_term"
       tracks = initialize_spotify_user.top_tracks(time_range: 'long_term', limit: 50)
       playlist = initialize_spotify_user.create_playlist!("#{t('pages.home.all_time')} Tracks(#{Time.now.strftime('%d-%b-%y')}, StreamStatz)", public: false)
       response = playlist.add_tracks!(tracks)
@@ -62,16 +62,51 @@ class SpotifyUsersController < ApplicationController
   def create_tracks_pdf
     require "RMagick"
     initialize_spotify_user
-    if create_pdf_params[:time_period] == "short_term"
+    if time_period_params[:time_period] == "short_term"
       @tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 10)
       @time_period = t('pages.home.last_month')
-    elsif create_pdf_params[:time_period] == "medium_term"
-      @tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 10)
+    elsif time_period_params[:time_period] == "medium_term"
+      @tracks = initialize_spotify_user.top_tracks(time_range: 'medium_term', limit: 10)
       @time_period = t('pages.home.last_6_months')
-    elsif create_pdf_params[:time_period] == "long_term"
+    elsif time_period_params[:time_period] == "long_term"
       @tracks = initialize_spotify_user.top_tracks(time_range: 'long_term', limit: 10)
       @time_period = t('pages.home.all_time')
     end
+    pdf_to_png('create_tracks')
+    images_slack_notification('tracks')
+  end
+
+  def create_artists_pdf
+    require "RMagick"
+    initialize_spotify_user
+    if time_period_params[:time_period] == "short_term"
+      @artists = initialize_spotify_user.top_artists(time_range: 'short_term', limit: 10)
+      @time_period = t('pages.home.last_month')
+    elsif time_period_params[:time_period] == "medium_term"
+      @artists = initialize_spotify_user.top_artists(time_range: 'medium_term', limit: 10)
+      @time_period = t('pages.home.last_6_months')
+    elsif time_period_params[:time_period] == "long_term"
+      @artists = initialize_spotify_user.top_artists(time_range: 'long_term', limit: 10)
+      @time_period = t('pages.home.all_time')
+    end
+    pdf_to_png('create_artists')
+    images_slack_notification('artists')
+  end
+
+  private
+
+  def initialize_spotify_user
+    spotify_user = RSpotify::User.new(
+    {
+      'credentials' => {
+         "token" => current_user.spotify_access_token,
+         "refresh_token" => current_user.spotify_refresh_token,
+      } ,
+      'id' => current_user.spotify_id
+    })
+  end
+
+  def pdf_to_png(view_template)
     pdf_name = current_user.spotify_display_name + rand(1..100).to_s
     png_name = "#{Rails.root.join}/tmp/StreamStatz-#{@time_period}-#{pdf_name}.png"
 
@@ -80,7 +115,7 @@ class SpotifyUsersController < ApplicationController
       format.pdf do
         render pdf: "StreamStatz",
         page_size: 'A4',
-        template: "spotify_users/create_tracks_pdf.html.erb",
+        template: "spotify_users/#{view_template}_pdf.html.erb",
         orientation: "Portrait",
         lowquality: false,
         encoding: 'utf8',
@@ -100,29 +135,16 @@ class SpotifyUsersController < ApplicationController
     send_file png_name
   end
 
-  private
-
-  def initialize_spotify_user
-    spotify_user = RSpotify::User.new(
-    {
-      'credentials' => {
-         "token" => current_user.spotify_access_token,
-         "refresh_token" => current_user.spotify_refresh_token,
-      } ,
-      'id' => current_user.spotify_id
-    })
-  end
-
-  def create_playlist_params
-    params.permit(:time_period)
-  end
-
-  def create_pdf_params
+  def time_period_params
     params.permit(:time_period)
   end
 
   def playlist_slack_notification(playlist_value)
     SlackNotifier::PLAYLIST_SLACK.ping("🎶🔥 New playlist\nUsername: #{playlist_value.owner.display_name}. See at #{playlist_value.owner.external_urls['spotify']}\nPlaylist_url: #{playlist_value.external_urls['spotify']}")
+  end
+
+  def images_slack_notification(image_type)
+    SlackNotifier::IMAGES_SLACK.ping("🎶🔥 New image\nUsername: #{current_user.spotify_display_name}\n#{image_type}")
   end
 
 end
