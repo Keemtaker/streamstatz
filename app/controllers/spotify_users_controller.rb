@@ -73,7 +73,7 @@ class SpotifyUsersController < ApplicationController
       @time_period = t('pages.home.all_time')
     end
     pdf_to_png('create_tracks')
-
+    images_slack_notification('tracks')
   end
 
   def create_artists_pdf
@@ -90,7 +90,7 @@ class SpotifyUsersController < ApplicationController
       @time_period = t('pages.home.all_time')
     end
     pdf_to_png('create_artists')
-
+    images_slack_notification('artists')
   end
 
   private
@@ -141,6 +141,10 @@ class SpotifyUsersController < ApplicationController
 
   def playlist_slack_notification(playlist_value)
     SlackNotifier::PLAYLIST_SLACK.ping("🎶🔥 New playlist\nUsername: #{playlist_value.owner.display_name}. See at #{playlist_value.owner.external_urls['spotify']}\nPlaylist_url: #{playlist_value.external_urls['spotify']}")
+  end
+
+  def images_slack_notification(image_type)
+    SlackNotifier::IMAGES_SLACK.ping("🎶🔥 New image\nUsername: #{current_user.spotify_display_name}\n#{image_type}")
   end
 
 end
