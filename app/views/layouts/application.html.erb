@@ -20,8 +20,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= wicked_pdf_stylesheet_pack_tag %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= wicked_pdf_javascript_pack_tag %>
+
     <%= favicon_link_tag asset_path('favicon.png') %>
 
     <link rel="alternate" hreflang="en" href="/" />

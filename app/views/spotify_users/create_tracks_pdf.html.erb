@@ -1,0 +1,46 @@
+<style type="text/css">
+  body {
+  background-color: #191414;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.track-style {
+  font-size: 30px;
+  word-wrap: break-word;
+}
+
+.artist-style {
+  font-size: 20px;
+  word-wrap: break-word;
+  color: #1ED760;
+}
+</style>
+
+
+<div class="container">
+  <br>
+  <p><%= image_tag wicked_pdf_asset_base64('spotify.png'), size: "150x150" %></p>
+  <h1> <%= t('top_tracks') %> | <%= @time_period %></h3>
+  <h1 style="color: #1ED760;">StreamStatz.com</h3>
+  <br>
+   <% if @tracks.first.album.images[0].present? %>
+    <%= image_tag @tracks.first.album.images[0]["url"], alt: @tracks.first.name, size: "300x300" %>
+  <% else %>
+    <%= image_tag wicked_pdf_asset_base64('spotify-home.jpg'), size: "300x300" %>
+  <% end %>
+  <br>
+  <br>
+  <% @tracks.take(5).each do | track | %>
+    <div class="track-style"><%= track.name %></div>
+    <div class="artist-style">| <%= track.artists[0].name  %> |</div>
+    <br>
+  <% end %>
+  <br>
+  <div class="track-style"><%= t('pages.home.page_header') %> @ <span style="color: #1ED760;">StreamStatz.com</span></div>
+
+</div>

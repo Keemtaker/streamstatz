@@ -13,6 +13,11 @@
         <br>
         <br>
         <br>
+        <%= link_to create_tracks_pdf_path(:time_period=> 'short_term', format: :pdf) do %>
+          <span><i class="fas fa-camera"></i> Share</span>
+        <% end %>
+        <br>
+        <br>
         <% @top_tracks_short_term.flatten.each do | track | %>
           <%= render partial: "spotify_users/partials/top_tracks", locals: {track: track} %>
         <% end %>
@@ -21,8 +26,13 @@
     <% @number_count = 0 %>
     <div class="tab-pane fade" id="half-year" role="tabpanel" aria-labelledby="half-year-tab">
       <div class="row">
-        <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-md" %> <%= t('.create_playlist_text') %></span>
+        <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'medium_term'), method: :post, class: "btn btn-success btn-md" %> <%= t('.create_playlist_text') %></span>
         <br>
+        <br>
+        <br>
+        <%= link_to create_tracks_pdf_path(:time_period=> 'medium_term', format: :pdf) do %>
+          <span><i class="fas fa-camera"></i> Share</span>
+        <% end %>
         <br>
         <br>
         <% @top_tracks_medium_term.flatten.each do | track | %>
@@ -33,8 +43,13 @@
     <% @number_count = 0 %>
     <div class="tab-pane fade" id="all-time" role="tabpanel" aria-labelledby="all-time-tab">
       <div class="row">
-        <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'short_term'), method: :post, class: "btn btn-success btn-md" %> <%= t('.create_playlist_text') %></span>
+        <span><%= link_to t('.create_playlist'), spotify_create_playlist_path(:time_period=> 'long_term'), method: :post, class: "btn btn-success btn-md" %> <%= t('.create_playlist_text') %></span>
         <br>
+        <br>
+        <br>
+        <%= link_to create_tracks_pdf_path(:time_period=> 'long_term', format: :pdf) do %>
+          <span><i class="fas fa-camera"></i> Share</span>
+        <% end %>
         <br>
         <br>
         <% @top_tracks_long_term.flatten.each do | track | %>

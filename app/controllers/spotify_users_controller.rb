@@ -1,4 +1,5 @@
 class SpotifyUsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :create_pdf]
 
   def spotify_top_tracks
     initialize_spotify_user
@@ -58,6 +59,47 @@ class SpotifyUsersController < ApplicationController
     end
   end
 
+  def create_tracks_pdf
+    require "RMagick"
+    initialize_spotify_user
+    if create_pdf_params[:time_period] == "short_term"
+      @tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 10)
+      @time_period = t('pages.home.last_month')
+    elsif create_pdf_params[:time_period] == "medium_term"
+      @tracks = initialize_spotify_user.top_tracks(time_range: 'short_term', limit: 10)
+      @time_period = t('pages.home.last_6_months')
+    elsif create_pdf_params[:time_period] == "long_term"
+      @tracks = initialize_spotify_user.top_tracks(time_range: 'long_term', limit: 10)
+      @time_period = t('pages.home.all_time')
+    end
+    pdf_name = current_user.spotify_display_name + rand(1..100).to_s
+    png_name = "#{Rails.root.join}/tmp/StreamStatz-#{@time_period}-#{pdf_name}.png"
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "StreamStatz",
+        page_size: 'A4',
+        template: "spotify_users/create_tracks_pdf.html.erb",
+        orientation: "Portrait",
+        lowquality: false,
+        encoding: 'utf8',
+        save_to_file: Rails.root.join('tmp', "#{pdf_name}.pdf")
+      end
+    end
+
+    pdf = Magick::ImageList.new(Rails.root.join("tmp/#{pdf_name}.pdf")) do
+          self.quality = 200
+          self.density = 300
+          self.colorspace = Magick::RGBColorspace
+          self.interlace = Magick::NoInterlace
+        end.each_with_index do |img|
+          img.resize_to_fit!(1080, 1920)
+          img.write(png_name)
+    end
+    send_file png_name
+  end
+
   private
 
   def initialize_spotify_user
@@ -72,6 +114,10 @@ class SpotifyUsersController < ApplicationController
   end
 
   def create_playlist_params
+    params.permit(:time_period)
+  end
+
+  def create_pdf_params
     params.permit(:time_period)
   end
 
