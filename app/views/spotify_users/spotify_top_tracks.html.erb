@@ -1,3 +1,8 @@
+<% content_for :head do %>
+  <%= display_meta_tags site: "Spotify #{t('top_tracks')}" %>
+  <meta name="description" content= "<%= t('.tracks_meta_description') %>" >
+<% end %>
+
 <div class="container">
   <br>
   <h2 class="lead"><%= t('.your_top_tracks') %></h3>

@@ -1,4 +1,5 @@
 es:
+  spotify_statistics: "Estadísticas de Spotify | StreamStatz"
   meta_description: "Conozca sus estadísticas de Spotify. Descubra sus mejores pistas de Spotify, los mejores artistas, los géneros favoritos y descubra la popularidad de sus mejores pistas o artistas"
   meta_keywords: "estadísticas de spotify, estadísticas de spotify, popularidad de artistas, popularidad de pistas, género favorito, envuelto, transmitir música"
   top_tracks: "Mejores Canciones"
@@ -26,14 +27,18 @@ es:
     emoji: "El emoji"
     track_popularity: "muestra la popularidad de la pista en spotify"
     spotify_top_tracks:
+      tracks_meta_description: "Conoce tus mejores canciones de Spotify"
       your_top_tracks: "Tus Mejores Pistas"
       create_playlist: "Crear una lista de reproducción 😎"
       create_playlist_text: "No tienes que saltarte una pista de nuevo 😜"
       playlist_alert: "¡Bonito! Tu increíble lista de reproducción está en spotify 🎉"
     spotify_top_artists:
+      artists_meta_description: "Ver tus mejores artistas de Spotify"
       your_top_artists: "Tus Mejores Artistas"
       artists_popularity: "muestra la popularidad de los artistas en spotify"
     spotify_recently_played:
+      recently_played_meta_description: "¿Qué canciones has tocado recientemente en Spotify? ¡Descubrir!"
       recently_played: "Canciones Reproducidas Recientemente"
     spotify_user_genres:
+      favorite_genres_meta_description: "¿Cuáles son tus principales géneros en Spotify? Encuéntralo ahora"
       favorite_genres: "Géneros Favoritos"

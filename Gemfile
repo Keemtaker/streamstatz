@@ -35,6 +35,7 @@ gem 'bugsnag'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'rmagick'
+gem 'meta-tags'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
