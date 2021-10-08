@@ -1,3 +1,8 @@
+<% content_for :head do %>
+  <%= display_meta_tags site: "#{t('recently_played')} | Spotify" %>
+  <meta name="description" content= "<%= t('.recently_played_meta_description') %>" >
+<% end %>
+
 <br>
 <div class="container">
   <br>
